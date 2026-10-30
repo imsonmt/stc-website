@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Chi tiết bài viết | STC - An toàn và Công nghệ</title>
+<meta name="description" content="Chi tiết bài viết tin tức, quy chuẩn và kiến thức kỹ thuật an toàn PCCC STC">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png"><link rel="shortcut icon" href="favicon.ico"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#d71920"><meta name="format-detection" content="telephone=no"><link rel="stylesheet" href="assets/style.css"></head>
+<body><header id="header"></header>
+
+<div class="page-head"><div class="container">
+  <small><a href="index.html" style="color:rgba(255,255,255,0.85)">Trang chủ</a> / <a href="tin-tuc.html" style="color:rgba(255,255,255,0.85)">Tin tức</a> / <span id="article-crumb">Chi tiết bài viết</span></small>
+  <h1 id="article-header-title" style="font-size:28px;margin-top:10px;text-transform:none;line-height:1.3">Chi tiết bài viết</h1>
+  <div style="margin-top:12px;display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;opacity:0.9">
+    <span id="article-tag" class="badge" style="position:static;display:inline-block">Quy chuẩn</span>
+    <span id="article-date">📅 15/10/2026</span>
+    <span id="article-author">✍ Ban Kỹ Thuật STC</span>
+    <span id="article-time">⏱ 5 phút đọc</span>
+  </div>
+</div></div>
+
+<section class="sec"><div class="container grid g3" style="grid-template-columns:2.2fr 1fr;gap:36px;align-items:start">
+  <!-- Cột nội dung bài viết chính -->
+  <article class="prose" style="background:#fff;padding:28px 32px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.06)">
+    <div id="article-hero-img" style="margin-bottom:24px;border-radius:6px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.1)">
+      <!-- Thumbnail ảnh bài viết -->
+    </div>
+    
+    <div id="article-body">
+      <!-- Toàn bộ nội dung bài viết được render động qua JS -->
+    </div>
+
+    <!-- Hộp liên hệ tư vấn cuối bài viết -->
+    <div style="margin-top:36px;padding:22px;background:var(--bg);border-left:4px solid var(--red);border-radius:6px">
+      <h3 style="color:var(--navy);margin-bottom:8px">Quý khách cần tư vấn giải pháp hoặc kiểm định thiết bị?</h3>
+      <p style="margin-bottom:14px;color:#555;font-size:14.5px">Đội ngũ kỹ sư giàu kinh nghiệm của <b>STC</b> luôn sẵn sàng hỗ trợ khảo sát, tư vấn thiết kế PCCC, cung cấp thiết bị chính hãng và dịch vụ hiệu chuẩn định kỳ.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn sm" href="lien-he.html">Gửi yêu cầu tư vấn kỹ thuật</a>
+        <a class="btn sm ghost" href="tel:0886628362" style="color:var(--red);border-color:var(--red)">☎ Hotline: 0886 628 362</a>
+      </div>
+    </div>
+
+    <!-- Nút quay lại danh mục tin tức -->
+    <div style="margin-top:28px;padding-top:20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center">
+      <a href="tin-tuc.html" style="color:var(--red);font-weight:700">← Quay lại danh mục Tin tức</a>
+      <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="background:none;border:none;color:#888;cursor:pointer;font-size:13px">Lên đầu trang ↑</button>
+    </div>
+  </article>
+
+  <!-- Cột bên: Các bài viết khác & Thiết bị liên quan -->
+  <aside>
+    <div class="card" style="padding:22px;margin-bottom:24px">
+      <h3 style="color:var(--navy);font-size:17px;margin-bottom:16px;border-bottom:2px solid var(--red);padding-bottom:8px">Bài viết cùng chuyên mục</h3>
+      <div id="related-news" style="display:flex;flex-direction:column;gap:16px"></div>
+    </div>
+
+    <div class="card" style="padding:22px;background:linear-gradient(135deg,var(--navy),#27457a);color:#fff">
+      <h3 style="color:#fff;font-size:17px;margin-bottom:10px">Thiết bị PCCC & Cứu Hộ Chính Hãng</h3>
+      <p style="font-size:13.5px;opacity:0.9;margin-bottom:16px">STC cung cấp đầy đủ chứng nhận CO, CQ, tem kiểm định của Cục Cảnh sát PCCC & CNCH.</p>
+      <a class="btn sm" href="san-pham.html" style="background:var(--red);color:#fff;display:block;text-align:center">Xem Danh Mục Sản Phẩm</a>
+    </div>
+  </aside>
+</div></section>
+
+<footer id="footer"></footer>
+
+<script src="assets/news-data.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/i18n.js"></script>
+<script>
+function renderArticleDetail() {
+  const params = new URLSearchParams(location.search);
+  const newsId = params.get("id") || (NEWS[0] && NEWS[0].id);
+  const article = NEWS.find(n => n.id === newsId) || NEWS[0];
+
+  if (!article) return;
+  const isEn = typeof I18N !== "undefined" && I18N.lang === "en";
+
+  const currentTitle = (isEn && article.title_en) ? article.title_en : article.title;
+  const currentSum = (isEn && article.sum_en) ? article.sum_en : article.sum;
+  const currentTag = (isEn && article.tag_en) ? article.tag_en : article.tag;
+  const currentAuthor = (isEn && article.author_en) ? article.author_en : article.author;
+  const currentTime = (isEn && article.reading_time_en) ? article.reading_time_en : article.reading_time;
+  const currentContent = (isEn && article.content_en) ? article.content_en : article.content;
+
+  document.title = currentTitle + (isEn ? " | STC - Safety & Technology" : " | STC - An toàn và Công nghệ");
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = currentSum;
+
+  const crumb = document.getElementById("article-crumb");
+  if (crumb) crumb.textContent = currentTitle;
+  const h1 = document.getElementById("article-header-title");
+  if (h1) h1.textContent = currentTitle;
+  const tagEl = document.getElementById("article-tag");
+  if (tagEl) tagEl.textContent = currentTag;
+  const dateEl = document.getElementById("article-date");
+  if (dateEl) dateEl.textContent = "📅 " + article.date;
+  const authorEl = document.getElementById("article-author");
+  if (authorEl && currentAuthor) authorEl.textContent = "✍ " + currentAuthor;
+  const timeEl = document.getElementById("article-time");
+  if (timeEl && currentTime) timeEl.textContent = "⏱ " + currentTime;
+
+  const heroImg = document.getElementById("article-hero-img");
+  if (heroImg) heroImg.innerHTML = `<img src="${article.img}" alt="${currentTitle}" style="width:100%;height:auto;max-height:420px;object-fit:cover;display:block">`;
+  const bodyEl = document.getElementById("article-body");
+  if (bodyEl) bodyEl.innerHTML = currentContent;
+
+  // Render 4 bài viết liên quan khác
+  const otherNews = NEWS.filter(n => n.id !== article.id).slice(0, 4);
+  const relatedContainer = document.getElementById("related-news");
+  if (relatedContainer) {
+    relatedContainer.innerHTML = otherNews.map(n => {
+      const relTitle = (isEn && n.title_en) ? n.title_en : n.title;
+      const relTag = (isEn && n.tag_en) ? n.tag_en : n.tag;
+      return `
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <a href="tin-tuc-chi-tiet.html?id=${encodeURIComponent(n.id)}" style="flex:none;width:80px;height:60px;border-radius:4px;overflow:hidden;background:#eee;display:block">
+          <img src="${n.img}" alt="${relTitle}" style="width:100%;height:100%;object-fit:cover">
+        </a>
+        <div style="flex:1">
+          <small style="color:var(--muted);font-size:11.5px">${n.date} • <span style="color:var(--red);font-weight:600">${relTag}</span></small>
+          <h4 style="font-size:13.5px;line-height:1.35;margin-top:2px">
+            <a href="tin-tuc-chi-tiet.html?id=${encodeURIComponent(n.id)}" style="color:var(--navy);font-weight:600">${relTitle}</a>
+          </h4>
+        </div>
+      </div>`;
+    }).join("");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderArticleDetail();
+  I18N.apply();
+});
+</script>
+</body></html>
